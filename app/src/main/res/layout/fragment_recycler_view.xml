@@ -1,0 +1,17 @@
+<android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/swipe_to_refresh_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.infy.android.telstrafeeds.common.RecyclerViewFragment">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/feeds_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:background="@color/colorFeedItemBg"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:scrollbars="vertical" />
+
+</android.support.v4.widget.SwipeRefreshLayout>

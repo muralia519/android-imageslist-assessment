@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Telstra Feeds</string>
+    <string name="refresh_action">Refresh Feeds</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
