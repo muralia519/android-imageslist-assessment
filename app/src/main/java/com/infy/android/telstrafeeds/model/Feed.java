@@ -1,18 +1,20 @@
 package com.infy.android.telstrafeeds.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonInclude;
 
 /**
+ * This is model class for Feed object and used Jackson for mapping JSON into POJO.
+ *
  * Created by Murali_Arigala on 5/10/2016.
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(content = JsonInclude.Include.NON_EMPTY)
 public class Feed {
     private String title;
     private String description;
 
-    public Feed(){}
+    public Feed() {
+    }
+
     public Feed(String title, String description, String imageHref) {
         this.title = title;
         this.description = description;

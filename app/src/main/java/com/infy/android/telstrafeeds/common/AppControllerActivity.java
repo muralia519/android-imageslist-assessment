@@ -1,24 +1,20 @@
 package com.infy.android.telstrafeeds.common;
 
-import android.content.res.Configuration;
-import android.net.Uri;
+import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.infy.android.telstrafeeds.R;
 
 /**
+ * This is app home/central controller/dashboard activity.
+ *
  * @author Murali_Arigala
  */
 public class AppControllerActivity extends AppCompatActivity implements RecyclerViewFragment.OnFragmentInteractionListener {
 
-
+    // Application Bar/Action Bar instance
     protected Toolbar mAppToolbar;
 
     @Override
@@ -28,13 +24,14 @@ public class AppControllerActivity extends AppCompatActivity implements Recycler
         mAppToolbar = (Toolbar) findViewById(R.id.app_toolbar);
         setSupportActionBar(mAppToolbar);
 
+        //Adding RecyclerFeedListFragment into this activity
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.fragment_container, RecyclerViewFragment.newInstance());
+        fragmentTransaction.replace(R.id.fragment_container, new RecyclerViewFragment());
         fragmentTransaction.commit();
     }
 
     @Override
-    public void onFragmentInteraction(Uri uri) {
-
+    public void onRecyclerViewFragmentInteraction(String action) {
+        //TODO::This is placeholder Feed Details Activity/Fragment view
     }
 }

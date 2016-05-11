@@ -11,7 +11,9 @@ import android.util.AttributeSet;
 import android.view.View;
 
 /**
- * https://gist.github.com/lapastillaroja/858caf1a82791b6c1a36
+ * This class is used for add dividers into RecyclerView similar to ListView dividers.
+ *
+ * This is taken from: https://gist.github.com/lapastillaroja/858caf1a82791b6c1a36
  */
 public class DividerItemDecoration extends RecyclerView.ItemDecoration {
 

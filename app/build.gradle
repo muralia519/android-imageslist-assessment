@@ -1,34 +1,46 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        release {
+            keyAlias 'android'
+            keyPassword 'telstra'
+            storeFile file('../telstra_feeds_app_keystore.jks')
+            storePassword 'telstra'
+        }
+    }
     compileSdkVersion 23
     buildToolsVersion "23.0.2"
-
     defaultConfig {
         applicationId "com.infy.android.telstrafeeds"
         minSdkVersion 14
         targetSdkVersion 23
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.0"
     }
     buildTypes {
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+            zipAlignEnabled true
         }
     }
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
-    // compile 'com.jakewharton:butterknife-compiler:8.0.1'
-    compile 'com.android.support:appcompat-v7:23.3.0'
-    compile 'com.android.support:recyclerview-v7:23.3.0'
-    compile 'com.squareup.picasso:picasso:2.5.2'
+    // Action/App Bar
     compile 'com.android.support:support-v4:23.3.0'
-
+    compile 'com.android.support:appcompat-v7:23.3.0'
+    // Recycler View
+    compile 'com.android.support:recyclerview-v7:23.3.0'
+    //Image Loading Dependency
+    compile 'com.squareup.picasso:picasso:2.5.2'
+    // HttpClient Dependency
     compile project(':volley')
+    //Jackson dependencies for JSON Parsing
     compile 'com.fasterxml.jackson.core:jackson-core:2.7.4'
     compile 'com.fasterxml.jackson.core:jackson-annotations:2.7.4'
     compile 'com.fasterxml.jackson.core:jackson-databind:2.7.4'

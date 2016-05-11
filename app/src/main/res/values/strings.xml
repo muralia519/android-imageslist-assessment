@@ -3,4 +3,6 @@
     <string name="refresh_action">Refresh Feeds</string>
     <string name="download_message">Downloading feeds...</string>
     <string name="feed_list_retrieval_error_message">Error in retrieving live feeds.Try agian later.</string>
+    <string name="refresh_completed_message">Feeds Details refreshed</string>
+    <string name="no_feed_details_message">No new feed details received</string>
 </resources>
