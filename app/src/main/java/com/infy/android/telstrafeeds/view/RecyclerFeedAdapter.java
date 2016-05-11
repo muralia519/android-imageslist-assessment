@@ -10,6 +10,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.infy.android.telstrafeeds.R;
+import com.infy.android.telstrafeeds.Utility;
 import com.infy.android.telstrafeeds.common.RecyclerViewFragment;
 import com.infy.android.telstrafeeds.model.Feed;
 import com.squareup.picasso.NetworkPolicy;
@@ -30,6 +31,10 @@ public class RecyclerFeedAdapter extends RecyclerView.Adapter<RecyclerFeedAdapte
         this.mContext = p_context;
     }
 
+    public void setFeedItemList(ArrayList<Feed> p_feedItemList){
+        this.mFeedItemList = p_feedItemList;
+    }
+
     @Override
     public ListItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.feed_item_layout, null);
@@ -41,7 +46,7 @@ public class RecyclerFeedAdapter extends RecyclerView.Adapter<RecyclerFeedAdapte
     public void onBindViewHolder(ListItemViewHolder holder, int position) {
         Feed feedItem = mFeedItemList.get(position);
         //Sets feed view image thumbnail
-        if (RecyclerViewFragment.isNotEmpty(feedItem.getImageHref())) {
+        if (Utility.isNotEmpty(feedItem.getImageHref())) {
             //Gets network image using picasso library
             Picasso.with(mContext).load(feedItem.getImageHref()).networkPolicy(NetworkPolicy.OFFLINE).resize(120, 120).error(R.drawable.ic_download_error)
                     .into(holder.mImageThumbnail);

@@ -1,5 +1,6 @@
 package com.infy.android.telstrafeeds.common;
 
+import android.content.res.Configuration;
 import android.net.Uri;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
@@ -16,7 +17,7 @@ import com.infy.android.telstrafeeds.R;
  * @author Murali_Arigala
  */
 public class AppControllerActivity extends AppCompatActivity implements RecyclerViewFragment.OnFragmentInteractionListener {
-    private final String DATA_URL = "https://dl.dropboxusercontent.com/u/746330/facts.json";
+
 
     protected Toolbar mAppToolbar;
 
@@ -26,11 +27,10 @@ public class AppControllerActivity extends AppCompatActivity implements Recycler
         setContentView(R.layout.activity_app_controller);
         mAppToolbar = (Toolbar) findViewById(R.id.app_toolbar);
         setSupportActionBar(mAppToolbar);
-        if (savedInstanceState == null) {
-            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.fragment_container, RecyclerViewFragment.newInstance());
-            fragmentTransaction.commit();
-        }
+
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.fragment_container, RecyclerViewFragment.newInstance());
+        fragmentTransaction.commit();
     }
 
     @Override
