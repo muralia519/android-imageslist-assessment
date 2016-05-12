@@ -167,9 +167,15 @@ public class RecyclerViewFragment extends Fragment {
         mRequestrQueue.add(jsonObjectRequest);
     }
 
+    /**
+     *
+     * This method is used for mapping JSONObject into Java Object in a background
+     * then update feed list adapter on UI/Main thread.
+     *
+     * @param response feeds details json object
+     */
     private void JSONToObjectMapping(final JSONObject response ){
 
-        // Using an AsyncTask to JSONObject into POJO in a background thread
         new AsyncTask<JSONObject, Void, FeedListDetails>() {
             @Override
             protected FeedListDetails doInBackground(JSONObject... params) {

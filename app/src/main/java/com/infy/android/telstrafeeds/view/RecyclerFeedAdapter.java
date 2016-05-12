@@ -54,7 +54,13 @@ public class RecyclerFeedAdapter extends RecyclerView.Adapter<RecyclerFeedAdapte
         if (Utility.isNotEmpty(feedItem.getImageHref())) {
             Log.d(TAG, "Image URL "+ feedItem.getImageHref() +" at position : "+position);
             /**
-             * Loading network image using picasso library, image loading is done different thread.
+             * Picasso library is used for lazing loading of images.
+             *
+             * Image loading is done on different worker threads.
+             *
+             * Image caching is supported by default for this library.This can be changed based on requirement.
+             *
+             * This library will handle multiple requests simultaneously.
              *
              * For more info on this library
              *
@@ -63,10 +69,10 @@ public class RecyclerFeedAdapter extends RecyclerView.Adapter<RecyclerFeedAdapte
 
             Picasso.with(mContext).
                     load(feedItem.getImageHref()). // Image url
-                    resize(mContext.getResources().getDimensionPixelSize(R.dimen.thumbnail_width), //Resizing image for inified look for all list times
+                    resize(mContext.getResources().getDimensionPixelSize(R.dimen.thumbnail_width), //Resizing image for unified look for all list times
                             mContext.getResources().getDimensionPixelSize(R.dimen.thumbnail_height))
                     .error(R.drawable.ic_download_error) // error image when unable to get/unavailable image from the url
-                    .into(holder.mImageThumbnail);
+                    .into(holder.mImageThumbnail); // Image view instance to which downloaded image is set.
             if (holder.mImageThumbnail.getVisibility() != View.VISIBLE) {
                 holder.mImageThumbnail.setVisibility(View.VISIBLE);
             }
